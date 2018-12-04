@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Spring Security Example </title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    </head>
+    <body>
+		<div id="vue_det">
+			<div th:if="${param.error}">
+				Invalid username and password.
+			</div>
+			<div th:if="${param.logout}">
+				You have been logged out.
+			</div>
+			<form action="http://127.0.0.1:8081/login" method="post">
+				<div><label> User Name : <input type="text" name="username"/> </label></div>
+				<div><label> Password: <input type="password" name="password"/> </label></div>
+				<div><input type="submit" value="Sign In"/></div>
+			</form>
+		</div>
+    </body>
+<script>
+	var vm = new Vue({
+		el: '#vue_det',
+		data:{
+			
+		}
+	})
+</script>
+</html>

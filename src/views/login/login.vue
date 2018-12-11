@@ -1,12 +1,12 @@
 
 <template>
 		<div id="vue_det">
-			<div th:if="${param.error}">
+			<!-- <div th:if="${param.error}"> 
 				Invalid username and password.
 			</div>
 			<div th:if="${param.logout}">
 				You have been logged out.
-			</div>
+			</div>-->
 				<div><label> User Name : <input v-model="username" placeholder="用户名"/> </label></div>
 				<div><label> Password: <input type="password" v-model="password" placeholder="密码"/> </label></div>
 				<div><input type="button" v-on:click="login" value="Sign In" /></div>
@@ -14,7 +14,6 @@
 </template>
 <script>
 export default {
-  name: 'login',
   data () {
     return {
       username: 'admin',
@@ -29,13 +28,27 @@ export default {
 				if (event) {
 					console.log(event.target.tagName)
 				}
+				
 				//发送 post 请求
-				this.$http.post('http://127.0.0.1:8081/login',{username:this.username,password:this.password},{emulateJSON:true}).then(function(res){
-						document.write(res.body);    
-				},function(res){
-						console.log('请求失败处理');
-						console.log(res.status);
+				this.$ajax({
+						method: 'post',
+						url: '/login',
+						data: {
+							username:this.username,
+							password:this.password
+						}
+				 })
+				.then(resp => {
+						console.log(resp.data);
+						if(resp.data.status == 1) {
+							location.href="/home";
+						} else {
+							alert(resp.data.message);
+						}
+				}).catch(err => {             //
+						console.log('请求失败：'+err.status+','+err.statusText);
 				});
+				
 			}
 	}
 }

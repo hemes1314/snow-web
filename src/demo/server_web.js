@@ -6,7 +6,7 @@ vue init webpack snow-web
 cd snow-web
 npm install
 npm run dev
-
+npm install axios -S
 */
 var express = require('express');
 var app = express();

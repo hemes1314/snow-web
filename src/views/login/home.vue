@@ -30,11 +30,6 @@ export default {
 				 })
 				.then(resp => {
 						console.log(resp.data);
-						if(resp.data.status == 1) {
-							//location.href="/home";
-						} else {
-							//alert(resp.data.message);
-						}
 				}).catch(err => {             //
 						console.log('请求失败：'+err.status+','+err.statusText);
 				});

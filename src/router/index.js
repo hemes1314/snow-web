@@ -16,9 +16,10 @@ npm install axios -S
 Vue.use(Router)
 Vue.prototype.$ajax = Axios
 //Axios.defaults.baseURL = '/api'
-Axios.defaults.baseURL = 'http://127.0.0.1:8081'
+Axios.defaults.baseURL = 'http://127.0.0.1:9090'
 //Axios.defaults.baseURL = 'https://easy-mock.com/mock/5c05e8af119ec9640d826e9c/datacenter'//'http://127.0.0.1:8081'
 Axios.defaults.headers.post['Content-Type'] = 'application/json';
+Axios.defaults.headers.common['Authorization'] = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbXSwiY2xpZW50X2lwIjoiMTAuNTAuMTQ2LjcwIiwiZXhwIjoxNTQ1Mzg3MDU2LCJpYXQiOjE1NDUzODM0NTZ9.RDF2yspZBZ_6IafCu3hAuMoIG8vq-AuUvgQ6yBn_VVmzqWjwb1GFNyDgie5w47SEeEmhB7wniaPZhkSY0A2Q2A";
 
 export default new Router({
   routes: [

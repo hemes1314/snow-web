@@ -39,7 +39,7 @@ export default {
 						this.login_status = resp.data.status;
 						console.log(this.login_status);
 						if(resp.data.status == 0) {
-							location.href="/home";
+							location.href="/#/?token="+resp.data.result.token;
 						}
 				}).catch(err => {             //
 						console.log('请求失败：'+err.status+','+err.statusText);

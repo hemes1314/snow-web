@@ -4,6 +4,7 @@
 		<p>Click <a href="/#/login">here</a> to login.</p>
 		<p>Click <a href="javascript:void(0);" v-on:click="hello">here</a> to ajax get request demo.</p>
 		<p>Click <a href="javascript:void(0);" v-on:click="winopen">here</a> to window open demo.</p>
+		<p>Click <router-link :to="{name:'mainpage'}">here</router-link> to common component demo demo.</p>
 	</div>
 </template>
 <script>

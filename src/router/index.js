@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Axios from 'axios'
 import Login from '@/views/login/login'
 import Home from '@/views/login/home'
+import mainpage from '@/views/commonComponent/mainpage'
+import common from '@/views/commonComponent/common'
 // vue-cli
 /*
 npm install vue 
@@ -30,6 +32,11 @@ export default new Router({
     },
 		{
 			name: 'home', path: '/', component: Home
+		},
+		{
+			path: '/mainpage', name: 'mainpage', component: mainpage, children:[
+				{name:'common',path:'common/:differId',component:common},
+			]
 		}
   ]
 })
